@@ -168,7 +168,6 @@ class _SignUpState extends State<SignUp> {
                   String name = _nameController.text;
                   String email = _emailController.text;
                   String password = _passwordController.text;
-
                   // Add your authentication logic here
                   // For a simple example, just print the email and password
                   print('CollegeId: $college');
