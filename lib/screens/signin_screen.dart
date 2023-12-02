@@ -1,7 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:temp1/auth.dart';
+import 'package:temp1/screens/widget_tree.dart';
 import 'package:flutter/material.dart';
+import 'package:temp1/auth.dart';
 import './signup_screen.dart';
 
 class SignIn extends StatefulWidget {
@@ -12,8 +13,25 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  String? errorMessage = 'Error';
+  bool isLogin = true;
+
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await Auth().signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
 
@@ -119,6 +137,12 @@ class _SignInState extends State<SignIn> {
                   SizedBox(height: 32.0),
                   ElevatedButton(
                     onPressed: () {
+                      setState(() {
+                        isLogin = !isLogin;
+                      });
+                      FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email: _emailController.text,
+                          password: _passwordController.text);
                       String email = _emailController.text;
                       String password = _passwordController.text;
                       print('Email: $email');

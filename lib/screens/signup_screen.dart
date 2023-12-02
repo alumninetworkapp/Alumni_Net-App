@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import './signin_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:temp1/auth.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -7,10 +9,27 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  String? errorMessage = 'Error';
+  bool isLogin = true;
+
   TextEditingController _collegeIdController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+
+  Future<void> createUserWithEmailAndPassword() async {
+    try {
+      await Auth().createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
   final FocusNode _collegeIdFocus = FocusNode();
   final FocusNode _nameFocus = FocusNode();
   final FocusNode _emailFocus = FocusNode();
@@ -170,6 +189,9 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(height: 32.0),
                   ElevatedButton(
                     onPressed: () {
+                      FirebaseAuth.instance.createUserWithEmailAndPassword(
+                          email: _emailController.text,
+                          password: _passwordController.text);
                       String college = _collegeIdController.text;
                       String name = _nameController.text;
                       String email = _emailController.text;
