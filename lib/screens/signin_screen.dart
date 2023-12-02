@@ -14,149 +14,159 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  final FocusNode _emailFocus = FocusNode();
+  final FocusNode _passwordFocus = FocusNode();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       resizeToAvoidBottomInset: false,
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 0, 0, 0),
-              Color.fromARGB(255, 36, 2, 98),
-              Color.fromARGB(235, 59, 8, 96),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
         child: Container(
-          padding: EdgeInsets.all(8.0),
-          margin: EdgeInsets.symmetric(vertical: 110, horizontal: 25),
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
-            borderRadius: const BorderRadius.all(Radius.circular(30)),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 0, 0, 0),
+                Color.fromARGB(255, 36, 2, 98),
+                Color.fromARGB(235, 59, 8, 96),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 50,
+          child: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.all(8.0),
+              margin: EdgeInsets.symmetric(vertical: 110, horizontal: 25),
+              decoration: BoxDecoration(
+                color:
+                    const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
+                borderRadius: const BorderRadius.all(Radius.circular(30)),
               ),
-              Text(
-                'Sign In',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: 120,
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    hintText: 'Enter valid mail id',
-                    hintStyle:
-                        TextStyle(color: Colors.white), // Set hint text color
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors.white), // Set border color when focused
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors
-                              .white), // Set border color when not focused
-                    ),
-                    labelStyle:
-                        TextStyle(color: Colors.white), // Set label text color
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 50,
                   ),
-                  style: TextStyle(color: Colors.white), // Set input text color
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                  obscureText: true,
-                  controller: _passwordController,
-                  style: TextStyle(color: Colors.white), // Set input text color
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Enter your secure password',
-                    hintStyle:
-                        TextStyle(color: Colors.white), // Set hint text color
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors.white), // Set border color when focused
+                  Text(
+                    'Sign In',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colors
-                              .white), // Set border color when not focused
-                    ),
-                    labelStyle:
-                        TextStyle(color: Colors.white), // Set label text color
                   ),
-                ),
-              ),
-              SizedBox(height: 32.0),
-              ElevatedButton(
-                onPressed: () {
-                  // Perform sign-in logic here
-                  String email = _emailController.text;
-                  String password = _passwordController.text;
-
-                  // Add your authentication logic here
-                  // For a simple example, just print the email and password
-                  print('Email: $email');
-                  print('Password: $password');
-                },
-                child: Text('Sign In'),
-              ),
-              SizedBox(height: 32.0),
-              GestureDetector(
-                onTap: () {
-                  // Navigate to sign-up page
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignUp()),
-                  );
-                },
-                child: RichText(
-                  text: TextSpan(
-                    text: 'New User? ',
-                    style: TextStyle(color: Colors.white),
-                    children: [
-                      TextSpan(
-                        text: 'Sign up here',
-                        style: TextStyle(
-                          color: Colors.white,
-                          decoration: TextDecoration.underline,
+                  SizedBox(
+                    height: 120,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: TextField(
+                      focusNode: _emailFocus,
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        hintText: 'Enter valid mail id',
+                        hintStyle: TextStyle(color: Colors.white),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
                         ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        labelStyle: TextStyle(color: Colors.white),
                       ),
-                    ],
+                      style: TextStyle(color: Colors.white),
+                      onTap: () {
+                        _scrollToCenter(_emailFocus);
+                      },
+                    ),
                   ),
-                ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: TextField(
+                      focusNode: _passwordFocus,
+                      obscureText: true,
+                      controller: _passwordController,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        hintText: 'Enter your secure password',
+                        hintStyle: TextStyle(color: Colors.white),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        labelStyle: TextStyle(color: Colors.white),
+                      ),
+                      onTap: () {
+                        _scrollToCenter(_passwordFocus);
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 32.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      String email = _emailController.text;
+                      String password = _passwordController.text;
+                      print('Email: $email');
+                      print('Password: $password');
+                    },
+                    child: Text('Sign In'),
+                  ),
+                  SizedBox(height: 32.0),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUp()),
+                      );
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'New User? ',
+                        style: TextStyle(color: Colors.white),
+                        children: [
+                          TextSpan(
+                            text: 'Sign up here',
+                            style: TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
+
+  void _scrollToCenter(FocusNode focusNode) {
+    Scrollable.ensureVisible(
+      focusNode.context!,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
 }
-
-
 
 
 
