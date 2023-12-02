@@ -15,6 +15,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^2.0.0
   crystal_navigation_bar: ^1.0.0
+  firebase_core: ^2.24.0
 
 
 flutter:
