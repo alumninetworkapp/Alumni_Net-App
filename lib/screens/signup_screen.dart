@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:temp1/screens/home_screen.dart';
 import './signin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:temp1/auth.dart';
@@ -192,6 +193,8 @@ class _SignUpState extends State<SignUp> {
                       FirebaseAuth.instance.createUserWithEmailAndPassword(
                           email: _emailController.text,
                           password: _passwordController.text);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
                       String college = _collegeIdController.text;
                       String name = _nameController.text;
                       String email = _emailController.text;
