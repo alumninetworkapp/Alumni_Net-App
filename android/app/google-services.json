@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "551939911239",
+    "project_id": "alumnnet",
+    "storage_bucket": "alumnnet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551939911239:android:a58ba7ca774c9176c40b62",
+        "android_client_info": {
+          "package_name": "com.example.temp1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDJdLrILcRQtkn3y9iCbom7lLw9CO7rh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
