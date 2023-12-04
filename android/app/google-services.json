@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "818159736616",
+    "project_id": "alumnet-3e39b",
+    "storage_bucket": "alumnet-3e39b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818159736616:android:a3311d441dd2cc029f221d",
+        "android_client_info": {
+          "package_name": "com.example.demo_alumnet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnl_pc9M9qsED_JIB6UAr4kzzy9wNbvmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
