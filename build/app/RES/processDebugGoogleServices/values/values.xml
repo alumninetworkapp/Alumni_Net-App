@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">818159736616</string>
-    <string name="google_api_key" translatable="false">AIzaSyBnl_pc9M9qsED_JIB6UAr4kzzy9wNbvmQ</string>
-    <string name="google_app_id" translatable="false">1:818159736616:android:a3311d441dd2cc029f221d</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBnl_pc9M9qsED_JIB6UAr4kzzy9wNbvmQ</string>
-    <string name="google_storage_bucket" translatable="false">alumnet-3e39b.appspot.com</string>
-    <string name="project_id" translatable="false">alumnet-3e39b</string>
-</resources>
