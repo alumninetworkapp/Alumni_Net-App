@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:demo_alumnet/components/my_drawer.dart';
 import 'package:demo_alumnet/screens/chat_screen.dart';
-import 'package:demo_alumnet/services/auth/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,14 +17,6 @@ class _HomePageState extends State<HomePage> {
   //instance of the auth
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  //signOut method
-  void signOut() {
-    //get auth service
-    final authService = Provider.of<AuthService>(context, listen: false);
-
-    authService.signOut();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +30,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: [
-          IconButton(onPressed: signOut, icon: const Icon(Icons.logout))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
         ],
       ),
+      drawer: MyDrawer(),
       body: _buildUserList(),
     );
   }
@@ -72,16 +64,16 @@ class _HomePageState extends State<HomePage> {
     Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
 
     // display all users except the current user
-    if (_auth.currentUser!.email != data['email']) {
+    if (_auth.currentUser!.email != data['username']) {
       return ListTile(
-        title: Text(data['email']), // Use const for static text
+        title: Text(data['username']), // Use const for static text
         onTap: () {
           // go to the chat screen
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => ChatPage(
-                receiverUserEmail: data['email'],
+                receiverUserEmail: data['username'],
                 receiverUserid: data['uid'],
               ),
             ),

@@ -28,10 +28,10 @@ class AuthService extends ChangeNotifier {
 
   //create a new user
   Future<UserCredential> signUpWithEmailAndPassword(
-      String email, String password) async {
+      String email, String password, String name) async {
     try {
       // trying sign up
-      UserCredential userCredential = await _firebaseAuth
+      UserCredential? userCredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
 
       // after creating new user, create a new document for the user in the users
@@ -39,6 +39,7 @@ class AuthService extends ChangeNotifier {
       _fireStore.collection('users').doc(userCredential.user!.uid).set({
         'uid': userCredential.user!.uid,
         'email': email,
+        'username': name,
       });
 
       return userCredential;
@@ -48,6 +49,19 @@ class AuthService extends ChangeNotifier {
       throw Exception(e.code);
     }
   }
+
+  // create user document and collect them in cloud firestore
+  // Future<void> createUserDocument(UserCredential? userCredential) async {
+  //   if (userCredential != null && userCredential.user != null) {
+  //     await FirebaseFirestore.instance
+  //         .collection("Users")
+  //         .doc(userCredential.user!.email)
+  //         .set({
+  //       'email': userCredential.user!.email,
+  //       'username': nameController.text,
+  //     });
+  //   }
+  // }
 
   //user sign out
   Future<void> signOut() async {

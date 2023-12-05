@@ -8,6 +8,8 @@ class ChatService extends ChangeNotifier {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore _fireStore = FirebaseFirestore.instance;
 
+  final User? currentUser = FirebaseAuth.instance.currentUser;
+
   //main METHODS
 
   // SEND MESSAGES
@@ -15,13 +17,16 @@ class ChatService extends ChangeNotifier {
     //get current user info
     final String currentUserId = _firebaseAuth.currentUser!.uid;
     final String currentUserEmail = _firebaseAuth.currentUser!.email.toString();
+    // final String currentUserName = await getUsername(currentUserId);
     final Timestamp timestamp = Timestamp.now();
 
     //create a new message
     Message newMessage = Message(
         senderId: currentUserId,
+        // senderUserName: currentUserName,
         senderEmail: currentUserEmail,
         receiverId: receiverId,
+        // receiverUserName: receiverUserName,
         message: message,
         timestamp: timestamp);
 

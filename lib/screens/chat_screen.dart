@@ -8,11 +8,14 @@ import 'package:flutter/material.dart';
 class ChatPage extends StatefulWidget {
   final String receiverUserEmail;
   final String receiverUserid;
+  // final String receiverUserName;          //fix
 
-  const ChatPage(
-      {super.key,
-      required this.receiverUserEmail,
-      required this.receiverUserid});
+  const ChatPage({
+    super.key,
+    required this.receiverUserEmail,
+    required this.receiverUserid,
+    // required this.receiverUserName,    //fix
+  });
 
   @override
   State<ChatPage> createState() => _ChatPageState();
@@ -86,6 +89,9 @@ class _ChatPageState extends State<ChatPage> {
         ? Alignment.centerRight
         : Alignment.centerLeft;
 
+    //decide left design or right
+    bool lrDecide = alignment == Alignment.centerRight ? true : false;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -104,7 +110,10 @@ class _ChatPageState extends State<ChatPage> {
             const SizedBox(
               height: 5,
             ),
-            ChatBubble(message: data['message']),
+            ChatBubble(
+              message: data['message'],
+              isSender: lrDecide,
+            ),
           ],
         ),
       ),

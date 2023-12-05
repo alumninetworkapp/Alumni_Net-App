@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo_alumnet/services/auth/auth_service.dart';
+import 'package:demo_alumnet/widgets/helper_functions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:demo_alumnet/components/widgets.dart';
 import 'package:provider/provider.dart';
@@ -12,18 +15,27 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  //text controllers
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
   // sign up user
   Future<void> signUp() async {
+    // show loading circle
+    // showDialog(
+    //   context: context,
+    //   builder: (context) => const Center(
+    //     child: CircularProgressIndicator(),
+    //   ),
+    // );
+
+    // check password match
     if (passwordController.text != confirmPasswordController.text) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Password do not match"),
-        ),
-      );
+      Navigator.pop(context);
+
+      displayMessageToUser("Password do not match", context);
       return;
     }
 
@@ -32,7 +44,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
     try {
       await authService.signUpWithEmailAndPassword(
-          emailController.text, passwordController.text);
+          emailController.text, passwordController.text, nameController.text);
+
+      // create user credentials
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -41,6 +55,19 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
       );
+    }
+  }
+
+  // create user document and collect them in cloud firestore
+  Future<void> createUserDocument(UserCredential? userCredential) async {
+    if (userCredential != null && userCredential.user != null) {
+      await FirebaseFirestore.instance
+          .collection("Users")
+          .doc(userCredential.user!.email)
+          .set({
+        'email': userCredential.user!.email,
+        'username': nameController.text,
+      });
     }
   }
 
@@ -79,6 +106,17 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   const SizedBox(
                     height: 50,
+                  ),
+
+                  //name
+                  MyTextField(
+                      controller: nameController,
+                      hintText: 'Enter your name',
+                      labelText: 'Name',
+                      obscureText: false),
+
+                  const SizedBox(
+                    height: 20,
                   ),
 
                   //email
