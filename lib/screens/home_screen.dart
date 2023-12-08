@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:demo_alumnet/components/my_bottom_navbar.dart';
 import 'package:demo_alumnet/components/my_drawer.dart';
 import 'package:demo_alumnet/screens/chat_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -35,6 +36,7 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: MyDrawer(),
       body: _buildUserList(),
+      bottomNavigationBar: MyBottomNavBar(),
     );
   }
 
