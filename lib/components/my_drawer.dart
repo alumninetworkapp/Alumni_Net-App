@@ -88,7 +88,7 @@ class _MyDrawerState extends State<MyDrawer> {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: ListTile(
-                  leading: Icon(Icons.contact_mail),
+                  leading: Icon(Icons.diversity_3),
                   title: Text('C O N T A C T   U S'),
                   onTap: () {
                     // Navigate to about us
@@ -102,17 +102,13 @@ class _MyDrawerState extends State<MyDrawer> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // logout button
-              TextButton(
-                child: Row(
-                  children: [
-                    Icon(Icons.logout),
-                    Text('L O G O U T'),
-                  ],
+              Padding(
+                padding: const EdgeInsets.only(left: 15, bottom: 30),
+                child: ListTile(
+                  leading: Icon(Icons.logout),
+                  title: Text('L O G O U T'),
+                  onTap: signOut,
                 ),
-                onPressed: () {
-                  // logout function
-                  signOut();
-                },
               ),
             ],
           ),
