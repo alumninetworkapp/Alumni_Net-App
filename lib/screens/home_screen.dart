@@ -35,7 +35,15 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       drawer: MyDrawer(),
-      body: _buildUserList(),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text('Posts')
+            ],
+          ),
+        ),
+      ),
       bottomNavigationBar: MyBottomNavBar(),
     );
   }
