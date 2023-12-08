@@ -88,18 +88,20 @@ class _MyDrawerState extends State<MyDrawer> {
             ],
           ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // logout button
-              Padding(
-                padding: const EdgeInsets.only(left: 15, bottom: 25),
-                child: ListTile(
-                  leading: Icon(Icons.logout),
-                  title: Text('L O G O U T'),
-                  onTap: () {
-                    // logout function
-                    signOut();
-                  },
+              TextButton(
+                child: Row(
+                  children: [
+                    Icon(Icons.logout),
+                    Text('L O G O U T'),
+                  ],
                 ),
+                onPressed: () {
+                  // logout function
+                  signOut();
+                },
               ),
             ],
           ),

@@ -3,6 +3,7 @@ import 'package:demo_alumnet/screens/aboutus_page.dart';
 import 'package:demo_alumnet/screens/home_screen.dart';
 import 'package:demo_alumnet/screens/members_screen.dart';
 import 'package:demo_alumnet/screens/profile_screen.dart';
+import 'package:demo_alumnet/screens/settings_screen.dart';
 import 'package:demo_alumnet/services/auth/auth_gate.dart';
 import 'package:demo_alumnet/services/auth/auth_service.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -33,6 +34,7 @@ class MainApp extends StatelessWidget {
         '/profile_page': (context) => const ProfilePage(),
         '/members_page': (context) => const MembersPage(),
         '/aboutus_page': (context) => const AboutUsPage(),
+        '/settings_page': (context) => const SettingsPage(),
       },
     );
   }
