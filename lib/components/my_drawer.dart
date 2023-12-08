@@ -85,6 +85,17 @@ class _MyDrawerState extends State<MyDrawer> {
                   },
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: ListTile(
+                  leading: Icon(Icons.contact_mail),
+                  title: Text('C O N T A C T   U S'),
+                  onTap: () {
+                    // Navigate to about us
+                    Navigator.pushNamed(context, '/contacts_page');
+                  },
+                ),
+              ),
             ],
           ),
           Column(
