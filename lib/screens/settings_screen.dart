@@ -18,6 +18,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     authService.signOut();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,105 +39,88 @@ class _SettingsPageState extends State<SettingsPage> {
         padding: EdgeInsets.symmetric(horizontal: 10),
         child: SingleChildScrollView(
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Column(
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.playlist_add_check_circle_outlined),
+                text: "My Achievments",
+                onTap: () {},
+              ),
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.message_outlined),
+                text: "Messages",
+                onTap: () {},
+              ),
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.settings),
+                text: "Settings",
+                onTap: () {},
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.playlist_add_check_circle_outlined),
-                    text: "My Achievments",
-                    onTap: () {},
-                  ),
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.message_outlined),
-                    text: "Messages",
-                    onTap: () {},
-                  ),
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.settings),
-                    text: "Settings",
-                    onTap: () {},
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('COMMUNITY'),
-                    ],
-                  ),
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.newspaper_outlined),
-                    text: "Blog",
-                    onTap: () {},
-                  ),
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.monitor_heart_outlined),
-                    text: "Activity",
-                    onTap: () {},
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('VIDEOS'),
-                    ],
-                  ),
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.video_camera_back_outlined),
-                    text: "Promo Videos",
-                    onTap: () {},
-                  ),
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.emergency_recording_outlined),
-                    text: "Help",
-                    onTap: () {},
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('OTHERS'),
-                    ],
-                  ),
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.task_outlined),
-                    text: "Terms and Service",
-                    onTap: () {},
-                  ),
-                  MyCustomListTile(
-                    padding: 10,
-                    icon: Icon(Icons.policy_outlined),
-                    text: "Privacy Policy",
-                    onTap: () {},
-                  ),
+                  Text('COMMUNITY'),
                 ],
               ),
-              SizedBox(
-                height: 60,
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.newspaper_outlined),
+                text: "Blog",
+                onTap: () {},
               ),
-             Column(
-               children: [
-                 MyCustomBtn(
-                  onTap: signOut,
-                  text: 'Logout' ,
-
-                 ),
-               ],
-             ),
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.monitor_heart_outlined),
+                text: "Activity",
+                onTap: () {},
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text('VIDEOS'),
+                ],
+              ),
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.video_camera_back_outlined),
+                text: "Promo Videos",
+                onTap: () {},
+              ),
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.emergency_recording_outlined),
+                text: "Help",
+                onTap: () {},
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text('OTHERS'),
+                ],
+              ),
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.task_outlined),
+                text: "Terms and Service",
+                onTap: () {},
+              ),
+              MyCustomListTile(
+                padding: 10,
+                icon: Icon(Icons.policy_outlined),
+                text: "Privacy Policy",
+                onTap: () {},
+              ),
             ],
           ),
         ),

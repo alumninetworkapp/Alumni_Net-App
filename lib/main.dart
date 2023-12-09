@@ -44,10 +44,3 @@ class MainApp extends StatelessWidget {
 
 
 
-
-//   Widget build(BuildContext context) {
-//     return const MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: AuthGate(),
-//       routes: {
-//         '/login_register_page': (context) => const LoginOrRegister(),
