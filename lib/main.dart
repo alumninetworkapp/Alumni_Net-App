@@ -32,7 +32,7 @@ class MainApp extends StatelessWidget {
       routes: {
         '/login_register_page': (context) => const LoginOrRegister(),
         '/home_page': (context) => const HomePage(),
-        '/profile_page': (context) => const ProfilePage(),
+        '/profile_page': (context) => ProfilePage(),
         '/members_page': (context) => const MembersPage(),
         '/aboutus_page': (context) => const AboutUsPage(),
         '/settings_page': (context) => const SettingsPage(),
@@ -41,6 +41,3 @@ class MainApp extends StatelessWidget {
     );
   }
 }
-
-
-
