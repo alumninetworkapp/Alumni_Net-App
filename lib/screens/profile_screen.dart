@@ -3,30 +3,78 @@ import 'package:demo_alumnet/components/text_box.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   ProfilePage({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Color.fromARGB(255, 120, 30, 238),
-//         title: Text(
-//           'P R O F I L E', 
-//           style: TextStyle(
-//             fontWeight: FontWeight.bold,
-//             color: Colors.white,
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
 
+class _ProfilePageState extends State<ProfilePage> {
   final currentUser = FirebaseAuth.instance.currentUser!;
 
+  final userCollection = FirebaseFirestore.instance.collection("users");
+
   // edit field
-  Future<void> editField(String field) async {}
+  // Future<void> editField(String field) async {
+  //   String newValue = "";
+
+  //   await showDialog(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: Text("Edit " + $field),
+  //     ),
+  //   );
+  // }
+
+  Future<void> editField(String field) async {
+    String newValue = "";
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.grey[900],
+        title: Text(
+          "Edit $field",
+          style: const TextStyle(color: Colors.white),
+        ), // Text
+        content: TextField(
+          autofocus: true,
+          style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            hintText: "Enter new $field",
+            hintStyle: TextStyle(color: Colors.grey),
+          ),
+          onChanged: (value) {
+            newValue = value;
+          },
+        ),
+
+        actions: [
+          // cancel button
+          TextButton(
+            child: Text(
+              'Cancel',
+              style: TextStyle(color: Colors.white),
+            ),
+            // Text
+            onPressed: () => Navigator.pop(context),
+          ), // TextButton
+          // save button
+          TextButton(
+            child: Text(
+              'Save',
+              style: TextStyle(color: Colors.white),
+            ), // Text
+            onPressed: () => Navigator.of(context).pop(newValue),
+          ), // TextButton
+        ],
+      ),
+    );
+
+    if (newValue.isNotEmpty) {
+      await userCollection.doc(currentUser.uid).update({field: newValue});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +131,7 @@ class ProfilePage extends StatelessWidget {
               // bio
 
               MyTextbox(
-                text: userData['username'],
+                text: userData['bio'],
                 sectionName: "Bio",
                 onPressed: () => editField("bio"),
               ),
