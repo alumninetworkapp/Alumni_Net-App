@@ -68,7 +68,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   title: const Text('M E M B E R S'),
                   onTap: () {
                     // Navigate to members
-                    Navigator.pushNamed(context, '/members_page');
+                    Navigator.pushNamed(context, '/members_list');
                   },
                 ),
               ),
