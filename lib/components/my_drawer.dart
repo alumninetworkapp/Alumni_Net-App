@@ -20,7 +20,7 @@ class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor:const Color.fromARGB(255, 255, 255, 255),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -38,8 +38,8 @@ class _MyDrawerState extends State<MyDrawer> {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: ListTile(
-                  leading: Icon(Icons.home),
-                  title: Text('H O M E'),
+                  leading: const Icon(Icons.home),
+                  title: const Text('H O M E'),
                   onTap: () {
                     // Navigate to Home
                     Navigator.pop(context);
@@ -51,8 +51,8 @@ class _MyDrawerState extends State<MyDrawer> {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text('P R O F I L E'),
+                  leading: const Icon(Icons.person),
+                  title: const Text('P R O F I L E'),
                   onTap: () {
                     //navigate to profile page
                     Navigator.pushNamed(context, '/profile_page');
@@ -64,8 +64,8 @@ class _MyDrawerState extends State<MyDrawer> {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: ListTile(
-                  leading: Icon(Icons.people_alt_sharp),
-                  title: Text('M E M B E R S'),
+                  leading: const Icon(Icons.people_alt_sharp),
+                  title: const Text('M E M B E R S'),
                   onTap: () {
                     // Navigate to members
                     Navigator.pushNamed(context, '/members_page');
@@ -77,8 +77,8 @@ class _MyDrawerState extends State<MyDrawer> {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: ListTile(
-                  leading: Icon(Icons.diversity_3),
-                  title: Text('A B O U T   U S'),
+                  leading: const Icon(Icons.diversity_3),
+                  title: const Text('A B O U T   U S'),
                   onTap: () {
                     // Navigate to about us
                     Navigator.pushNamed(context, '/aboutus_page');
@@ -88,8 +88,8 @@ class _MyDrawerState extends State<MyDrawer> {
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: ListTile(
-                  leading: Icon(Icons.diversity_3),
-                  title: Text('C O N T A C T   U S'),
+                  leading:const  Icon(Icons.diversity_3),
+                  title: const Text('C O N T A C T   U S'),
                   onTap: () {
                     // Navigate to about us
                     Navigator.pushNamed(context, '/contacts_page');
@@ -105,8 +105,8 @@ class _MyDrawerState extends State<MyDrawer> {
               Padding(
                 padding: const EdgeInsets.only(left: 15, bottom: 30),
                 child: ListTile(
-                  leading: Icon(Icons.logout),
-                  title: Text('L O G O U T'),
+                  leading: const Icon(Icons.logout),
+                  title: const Text('L O G O U T'),
                   onTap: signOut,
                 ),
               ),

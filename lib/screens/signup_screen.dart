@@ -20,6 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final bioController = TextEditingController();
 
   // sign up user
   Future<void> signUp() async {
@@ -43,8 +44,8 @@ class _RegisterPageState extends State<RegisterPage> {
     final authService = Provider.of<AuthService>(context, listen: false);
 
     try {
-      await authService.signUpWithEmailAndPassword(
-          emailController.text, passwordController.text, nameController.text);
+      await authService.signUpWithEmailAndPassword(emailController.text,
+          passwordController.text, nameController.text, bioController.text);
 
       // create user credentials
     } catch (e) {
@@ -67,6 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
           .set({
         'email': userCredential.user!.email,
         'username': nameController.text,
+        'bio': "Enter your Bio",
       });
     }
   }
