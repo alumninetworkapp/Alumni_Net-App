@@ -34,9 +34,9 @@ class AboutUsPage extends StatelessWidget {
               const SizedBox(height: 16.0),
               _buildValuesCard(), // Add the values card
               const SizedBox(height: 16.0),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 40),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.only(bottom: 40),
+                child: Text(
                   'Join us today and experience the power of AlumNet!',
                   style: TextStyle(
                     fontSize: 16.0,
