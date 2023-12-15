@@ -82,7 +82,7 @@ class _ProfilePageState extends State<ProfilePage> {
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: const Text("Profile Page"),
-        backgroundColor: const Color.fromARGB(255, 214, 143, 143),
+        backgroundColor: const Color.fromARGB(255, 190, 147, 228),
       ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
