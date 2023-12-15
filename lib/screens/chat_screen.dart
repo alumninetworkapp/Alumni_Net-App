@@ -106,7 +106,7 @@ class _ChatPageState extends State<ChatPage> {
                   ? MainAxisAlignment.end
                   : MainAxisAlignment.start,
           children: [
-            Text(data['senderEmail']),
+            // Text(data['senderEmail']),
             const SizedBox(
               height: 5,
             ),
