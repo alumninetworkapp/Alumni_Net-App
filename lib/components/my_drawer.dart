@@ -20,7 +20,7 @@ class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor:const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor:Colors.deepPurple[100],
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

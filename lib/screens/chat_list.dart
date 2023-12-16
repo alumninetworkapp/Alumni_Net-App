@@ -1,3 +1,4 @@
+import 'package:demo_alumnet/components/my_bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demo_alumnet/screens/chat_screen.dart';
@@ -18,12 +19,12 @@ class _MembersPageState extends State<MembersPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Messages',
-          style: const TextStyle(
+        title: const Text(
+          'Chat',
+          style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.italic,
+
           ),
         ),
         actions: [
@@ -31,6 +32,7 @@ class _MembersPageState extends State<MembersPage> {
         ],
       ),
       body: _buildUserList(),
+      bottomNavigationBar: const MyBottomNavBar(),
     );
   }
 

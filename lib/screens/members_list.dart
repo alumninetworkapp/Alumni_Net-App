@@ -1,3 +1,4 @@
+import 'package:demo_alumnet/components/my_bottom_navbar.dart';
 import 'package:demo_alumnet/model/members.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +14,10 @@ class _MembersListState extends State<MembersList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Members'),
+        title: const Text('Members'),
       ),
-      body: AllMembersWidget(),
+      body: const AllMembersWidget(),
+      bottomNavigationBar: const MyBottomNavBar(),
     );
   }
 }

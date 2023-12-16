@@ -17,13 +17,15 @@ class Member {
 }
 
 class AllMembersWidget extends StatelessWidget {
+  const AllMembersWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: getAllMembers(),
       builder: (context, AsyncSnapshot<List<Member>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {

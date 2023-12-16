@@ -17,7 +17,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Colors.purple,
+      color: Colors.deepPurple[600],
       child: SizedBox(
         height: 40,
         width: MediaQuery.of(context).size.width,
@@ -32,6 +32,7 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
                   selected: true,
                   onPressed: () {
                     //call function selected
+                    Navigator.pushNamed(context, '/home_page');
                   }),
               IconBottomBar(
                   text: "Members",
@@ -71,12 +72,11 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
 
 class IconBottomBar extends StatelessWidget {
   const IconBottomBar(
-      {Key? key,
+      {super.key,
       required this.text,
       required this.icon,
       required this.selected,
-      required this.onPressed})
-      : super(key: key);
+      required this.onPressed});
   final String text;
   final IconData icon;
   final bool selected;
@@ -104,12 +104,11 @@ class IconBottomBar extends StatelessWidget {
 
 class IconBottomBar2 extends StatelessWidget {
   const IconBottomBar2(
-      {Key? key,
+      {super.key,
       required this.text,
       required this.icon,
       required this.selected,
-      required this.onPressed})
-      : super(key: key);
+      required this.onPressed});
   final String text;
   final IconData icon;
   final bool selected;
