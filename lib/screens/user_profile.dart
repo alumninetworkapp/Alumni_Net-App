@@ -10,7 +10,7 @@ class UserProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Profile for $uid'),
+        title: Text('Profile'),
       ),
       body: StreamBuilder(
         stream:
