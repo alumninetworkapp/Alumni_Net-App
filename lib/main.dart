@@ -1,4 +1,5 @@
 import 'package:demo_alumnet/firebase_options.dart';
+import 'package:demo_alumnet/model/post_page.dart';
 import 'package:demo_alumnet/screens/aboutus_page.dart';
 import 'package:demo_alumnet/screens/contact_us.dart';
 import 'package:demo_alumnet/screens/home_screen.dart';
@@ -39,6 +40,7 @@ class MainApp extends StatelessWidget {
         '/aboutus_page': (context) => const AboutUsPage(),
         '/settings_page': (context) => const SettingsPage(),
         '/contacts_page': (context) => const ContactUs(),
+        '/posting_page': (context) =>  PostPage(),
       },
     );
   }

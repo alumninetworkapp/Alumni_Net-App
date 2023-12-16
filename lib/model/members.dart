@@ -21,7 +21,9 @@ class AllMembersWidget extends StatelessWidget {
       future: getAllMembers(),
       builder: (context, AsyncSnapshot<List<Member>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator(); // Loading indicator while fetching data
+          return Center(
+              child:
+                  CircularProgressIndicator()); // Loading indicator while fetching data
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {
