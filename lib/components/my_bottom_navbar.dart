@@ -44,7 +44,9 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
                   text: "Add Post",
                   icon: Icons.add,
                   selected: true,
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/posting_page');
+                  }),
               IconBottomBar(
                   text: "Messages",
                   icon: Icons.message_outlined,

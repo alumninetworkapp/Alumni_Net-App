@@ -1,5 +1,5 @@
 import 'package:demo_alumnet/components/my_list_tile.dart';
-// import 'package:demo_alumnet/components/widgets.dart';
+import 'package:demo_alumnet/model/post_page.dart';
 import 'package:demo_alumnet/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
