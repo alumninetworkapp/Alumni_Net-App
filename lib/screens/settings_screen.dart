@@ -35,25 +35,25 @@ class _SettingsPageState extends State<SettingsPage> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.playlist_add_check_circle_outlined),
+                icon: const Icon(Icons.playlist_add_check_circle_outlined),
                 text: "My Achievments",
                 onTap: () {},
               ),
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.message_outlined),
+                icon: const Icon(Icons.message_outlined),
                 text: "Messages",
                 onTap: () {},
               ),
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.settings),
+                icon: const Icon(Icons.settings),
                 text: "Settings",
                 onTap: () {},
               ),
@@ -68,13 +68,13 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.newspaper_outlined),
+                icon: const Icon(Icons.newspaper_outlined),
                 text: "Blog",
                 onTap: () {},
               ),
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.monitor_heart_outlined),
+                icon: const Icon(Icons.monitor_heart_outlined),
                 text: "Activity",
                 onTap: () {},
               ),
@@ -89,13 +89,13 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.video_camera_back_outlined),
+                icon: const Icon(Icons.video_camera_back_outlined),
                 text: "Promo Videos",
                 onTap: () {},
               ),
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.emergency_recording_outlined),
+                icon: const Icon(Icons.emergency_recording_outlined),
                 text: "Help",
                 onTap: () {},
               ),
@@ -110,13 +110,13 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.task_outlined),
+                icon: const Icon(Icons.task_outlined),
                 text: "Terms and Service",
                 onTap: () {},
               ),
               MyCustomListTile(
                 padding: 10,
-                icon: Icon(Icons.policy_outlined),
+                icon: const Icon(Icons.policy_outlined),
                 text: "Privacy Policy",
                 onTap: () {},
               ),

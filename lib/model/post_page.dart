@@ -693,13 +693,15 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PostPage extends StatefulWidget {
+  const PostPage({super.key});
+
   @override
   _PostPageState createState() => _PostPageState();
 }
 
 class _PostPageState extends State<PostPage> {
   File? _image;
-  TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
   String? _userId; // Variable to store the current user's ID
 
   @override
@@ -734,7 +736,7 @@ class _PostPageState extends State<PostPage> {
       if (_image == null) {
         // Show an error message because image is mandatory
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('Please select an image.'),
           ),
         );
@@ -782,10 +784,10 @@ class _PostPageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create a Post'),
+        title: const Text('Create a Post'),
         actions: [
           IconButton(
-            icon: Icon(Icons.check),
+            icon: const Icon(Icons.check),
             onPressed: _uploadPost,
           ),
         ],
@@ -796,17 +798,17 @@ class _PostPageState extends State<PostPage> {
           children: [
             TextFormField(
               controller: _textEditingController,
-              decoration: InputDecoration(labelText: 'Write something...'),
+              decoration: const InputDecoration(labelText: 'Write something...'),
               maxLines: null,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             _image != null
                 ? Image.file(_image!, height: 150)
-                : SizedBox.shrink(),
-            SizedBox(height: 16),
+                : const SizedBox.shrink(),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: _getImage,
-              child: Text('Select Image'),
+              child: const Text('Select Image'),
             ),
           ],
         ),

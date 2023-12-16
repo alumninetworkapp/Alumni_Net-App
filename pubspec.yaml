@@ -14,8 +14,9 @@ dependencies:
   provider: any
   cloud_firestore: ^4.13.3
   firebase_storage: ^11.5.6
-  image_picker: ^0.8.4
+  image_picker: ^1.0.5
   cached_network_image: ^3.0.0
+  flutter_local_notifications: ^16.2.0
 
 dev_dependencies:
   flutter_test:

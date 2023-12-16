@@ -5,6 +5,7 @@ import 'package:demo_alumnet/screens/contact_us.dart';
 import 'package:demo_alumnet/screens/home_screen.dart';
 import 'package:demo_alumnet/screens/chat_list.dart';
 import 'package:demo_alumnet/screens/members_list.dart';
+import 'package:demo_alumnet/screens/notification_screen.dart';
 import 'package:demo_alumnet/screens/profile_screen.dart';
 import 'package:demo_alumnet/screens/settings_screen.dart';
 import 'package:demo_alumnet/services/auth/auth_gate.dart';
@@ -34,15 +35,17 @@ class MainApp extends StatelessWidget {
       routes: {
         '/login_register_page': (context) => const LoginOrRegister(),
         '/home_page': (context) => const HomePage(),
-        '/profile_page': (context) => ProfilePage(),
+        '/profile_page': (context) => const ProfilePage(),
         '/chat_page': (context) => const MembersPage(),
         '/members_list': (context) => const MembersList(),
         '/aboutus_page': (context) => const AboutUsPage(),
         '/settings_page': (context) => const SettingsPage(),
         '/contacts_page': (context) => const ContactUs(),
-        '/posting_page': (context) =>  PostPage(),
-        // '/posting_page': (context) =>  PostPage(),
+        '/posting_page': (context) =>  const PostPage(),
+        '/notification_page': (context) =>  const NotificationPage(),
       },
     );
   }
 }
+
+

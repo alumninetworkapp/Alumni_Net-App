@@ -9,12 +9,12 @@ class MyTextField extends StatelessWidget {
   final bool obscureText;
 
   const MyTextField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.hintText,
     required this.labelText,
     required this.obscureText,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,12 @@ class MyTextField extends StatelessWidget {
         hintText: hintText,
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Color.fromARGB(230, 0, 0, 0)),
+          borderRadius: BorderRadius.all(Radius.circular(20))
         ),
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Color.fromARGB(230, 108, 14, 159)),
         ),
-        fillColor: const Color.fromARGB(230, 255, 255, 255),
+        fillColor: Colors.deepPurple[100],
         filled: true,
         hintStyle: const TextStyle(
           color: Colors.grey,
@@ -58,14 +59,15 @@ class MyCustomBtn extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(25),
         decoration: BoxDecoration(
-            color: Colors.black, borderRadius: BorderRadius.circular(9)),
+            color: Colors.deepPurple[600], 
+            borderRadius: BorderRadius.circular(20)),
         child: Center(
           child: Text(
             text,
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 16,
+              fontSize: 18,
             ),
           ),
         ),

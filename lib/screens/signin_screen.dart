@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.deepPurple[200],
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -48,13 +48,13 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //logo
-                  Icon(
+                  const Icon(
                     Icons.nature_people_rounded,
                     size: 120,
                   ),
 
                   //AlumNet
-                  Text(
+                  const Text(
                     'AlumNet',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 20,
                   ),
 
-                  Text(
+                  const Text(
                     'Welcome back, you been missed!!',
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
