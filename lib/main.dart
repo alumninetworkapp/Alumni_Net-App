@@ -41,6 +41,7 @@ class MainApp extends StatelessWidget {
         '/settings_page': (context) => const SettingsPage(),
         '/contacts_page': (context) => const ContactUs(),
         '/posting_page': (context) =>  PostPage(),
+        // '/posting_page': (context) =>  PostPage(),
       },
     );
   }

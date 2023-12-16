@@ -332,7 +332,7 @@ class PostWidget extends StatelessWidget {
     Map<String, dynamic> data = post.data() as Map<String, dynamic>;
     String postText = data['text'];
     String postImage = data['imagePath'] ?? '';
-    String postUserId = data['userId'];
+    String  postUserId = data['userId'];
 
     return Card(
       margin: EdgeInsets.all(8),
