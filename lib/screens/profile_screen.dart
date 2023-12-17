@@ -317,7 +317,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -341,10 +341,10 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         content: TextField(
           autofocus: true,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
             hintText: "Enter new $field",
-            hintStyle: TextStyle(color: Colors.grey),
+            hintStyle: const TextStyle(color: Colors.grey),
           ),
           onChanged: (value) {
             newValue = value;
@@ -352,14 +352,14 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         actions: [
           TextButton(
-            child: Text(
+            child: const Text(
               'Cancel',
               style: TextStyle(color: Colors.white),
             ),
             onPressed: () => Navigator.pop(context),
           ),
           TextButton(
-            child: Text(
+            child: const Text(
               'Save',
               style: TextStyle(color: Colors.white),
             ),
@@ -397,7 +397,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   .get(),
               builder: (context, postsSnapshot) {
                 if (postsSnapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
 
                 if (postsSnapshot.hasError) {
@@ -407,8 +407,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 final userPosts = postsSnapshot.data!.docs;
 
                 return ListView(children: [
-                  SizedBox(height: 50),
-                  Icon(
+                  const SizedBox(height: 50),
+                  const Icon(
                     Icons.person,
                     size: 72,
                   ),
@@ -465,7 +465,7 @@ class _ProfilePageState extends State<ProfilePage> {
             );
           }
 
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         },

@@ -4,13 +4,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class UserProfilePage extends StatelessWidget {
   final String uid;
 
-  const UserProfilePage({Key? key, required this.uid}) : super(key: key);
+  const UserProfilePage({super.key, required this.uid});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
       ),
       body: StreamBuilder(
         stream:
@@ -22,18 +22,18 @@ class UserProfilePage extends StatelessWidget {
             return SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: 20),
-                  CircleAvatar(
+                  const SizedBox(height: 20),
+                  const CircleAvatar(
                     radius: 60,
                     backgroundImage:
                         AssetImage('assets/profile_placeholder.png'),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     userData['username'],
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                     child: MyTextbox(
@@ -41,7 +41,7 @@ class UserProfilePage extends StatelessWidget {
                       text: userData['bio'],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: StreamBuilder(
@@ -52,7 +52,7 @@ class UserProfilePage extends StatelessWidget {
                       builder: (context, postSnapshot) {
                         if (postSnapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return CircularProgressIndicator();
+                          return const CircularProgressIndicator();
                         } else if (postSnapshot.hasError) {
                           return Text('Error: ${postSnapshot.error}');
                         }
@@ -62,13 +62,13 @@ class UserProfilePage extends StatelessWidget {
 
                         return GridView.builder(
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 3,
                             crossAxisSpacing: 8.0,
                             mainAxisSpacing: 8.0,
                           ),
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: userPosts.length,
                           itemBuilder: (context, index) {
                             var post = userPosts[index];
@@ -97,7 +97,7 @@ class UserProfilePage extends StatelessWidget {
             );
           }
 
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         },
@@ -111,10 +111,10 @@ class MyTextbox extends StatelessWidget {
   final String sectionName;
 
   const MyTextbox({
-    Key? key,
+    super.key,
     required this.text,
     required this.sectionName,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
