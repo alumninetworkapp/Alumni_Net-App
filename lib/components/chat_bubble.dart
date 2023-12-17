@@ -10,7 +10,7 @@ class ChatBubble extends StatelessWidget {
     if (isSender) {
       //align messages right design
       return Container(
-        padding: EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(18),
@@ -30,7 +30,7 @@ class ChatBubble extends StatelessWidget {
     } else {
       //align messages left design
       return Container(
-        padding: EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(18),

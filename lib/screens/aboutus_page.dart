@@ -34,9 +34,9 @@ class AboutUsPage extends StatelessWidget {
               const SizedBox(height: 16.0),
               _buildValuesCard(), // Add the values card
               const SizedBox(height: 16.0),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 40),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.only(bottom: 40),
+                child: Text(
                   'Join us today and experience the power of AlumNet!',
                   style: TextStyle(
                     fontSize: 16.0,
@@ -53,23 +53,23 @@ class AboutUsPage extends StatelessWidget {
 }
 
 Widget _buildMissionCard() {
-  return Card(
+  return const Card(
     elevation: 5.0,
-    margin: const EdgeInsets.symmetric(vertical: 16.0),
+    margin: EdgeInsets.symmetric(vertical: 16.0),
     child: Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             'Our Mission',
             style: TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8.0),
-          const Text(
+          SizedBox(height: 8.0),
+          Text(
             'To empower our alumni community by providing a platform for : \n \nNetworking and reconnecting with fellow graduates \nSharing career advice and mentorship opportunities \nCollaborating on projects and initiatives \nStaying up-to-date on alumni news and events',
             style: TextStyle(
               fontSize: 16.0,
@@ -100,7 +100,7 @@ Widget _buildValuesCard() {
           const SizedBox(height: 8.0),
           RichText(
             text: TextSpan(
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16.0,
                 color: Colors.black,
               ),
@@ -137,7 +137,7 @@ Widget _buildValuesCard() {
 TextSpan _buildBoldTextSpan(String text) {
   return TextSpan(
     text: text,
-    style: TextStyle(
+    style: const TextStyle(
       fontWeight: FontWeight.bold,
     ),
   );

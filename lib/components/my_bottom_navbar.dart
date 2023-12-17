@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyBottomNavBar extends StatefulWidget {
   const MyBottomNavBar({super.key});
-  
+
   final primaryColor = const Color(0xff4338CA);
   final secondaryColor = const Color(0xff6D28D9);
   final accentColor = const Color(0xffffffff);
@@ -14,12 +14,10 @@ class MyBottomNavBar extends StatefulWidget {
 }
 
 class _MyBottomNavBarState extends State<MyBottomNavBar> {
-
-
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Colors.purple,
+      color: Colors.deepPurple[600],
       child: SizedBox(
         height: 40,
         width: MediaQuery.of(context).size.width,
@@ -28,45 +26,42 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-                    IconBottomBar(
-                    text: "Home",
-                    icon: Icons.home,
-                    selected: true,
-                    onPressed: () {
-
-                      //call function selected
-
-
-                    }),
-                IconBottomBar(
-                    text: "Members",
-                    icon: Icons.people,
-                    selected: true,
-                    onPressed: () {
-                    Navigator.pushNamed(context, '/members_page');
-
-                    }),
-                IconBottomBar2(
-                    text: "Add Post",
-                    icon: Icons.add,
-                    selected: true,
-                    onPressed: () {
-
-                    }),
-                IconBottomBar(
-                    text: "Messages",
-                    icon: Icons.message_outlined,
-                    selected: true,
-                    onPressed: () {
-                    Navigator.pushNamed(context, '/members_page');
-                    }),
-                IconBottomBar(
-                    text: "Settings",
-                    icon: Icons.list,
-                    selected: true,
-                    onPressed: () {
+              IconBottomBar(
+                  text: "Home",
+                  icon: Icons.home,
+                  selected: true,
+                  onPressed: () {
+                    //call function selected
+                    Navigator.pushNamed(context, '/home_page');
+                  }),
+              IconBottomBar(
+                  text: "Members",
+                  icon: Icons.people,
+                  selected: true,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/members_list');
+                  }),
+              IconBottomBar2(
+                  text: "Add Post",
+                  icon: Icons.add,
+                  selected: true,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/posting_page');
+                  }),
+              IconBottomBar(
+                  text: "Messages",
+                  icon: Icons.message_outlined,
+                  selected: true,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/chat_page');
+                  }),
+              IconBottomBar(
+                  text: "Settings",
+                  icon: Icons.list,
+                  selected: true,
+                  onPressed: () {
                     Navigator.pushNamed(context, '/settings_page');
-                    })
+                  })
             ],
           ),
         ),
@@ -74,20 +69,20 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
     );
   }
 }
+
 class IconBottomBar extends StatelessWidget {
   const IconBottomBar(
-      {Key? key,
+      {super.key,
       required this.text,
       required this.icon,
       required this.selected,
-      required this.onPressed})
-      : super(key: key);
+      required this.onPressed});
   final String text;
   final IconData icon;
   final bool selected;
   final Function() onPressed;
 
- final primaryColor = const Color(0xff4338CA);
+  final primaryColor = const Color(0xff4338CA);
 
   @override
   Widget build(BuildContext context) {
@@ -109,12 +104,11 @@ class IconBottomBar extends StatelessWidget {
 
 class IconBottomBar2 extends StatelessWidget {
   const IconBottomBar2(
-      {Key? key,
+      {super.key,
       required this.text,
       required this.icon,
       required this.selected,
-      required this.onPressed})
-      : super(key: key);
+      required this.onPressed});
   final String text;
   final IconData icon;
   final bool selected;
