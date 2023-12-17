@@ -56,9 +56,9 @@ Wooble is a fully functional social media app with multiple features built with 
 
 #### 3. Setup the firebase app
 
-- You'll need to create a Firebase instance. Follow the instructions
+- You need to create a Firebase instance. Follow the instructions
   at https://console.firebase.google.com.
-- Once your Firebase instance is created, you'll need to enable Google authentication.
+- Once you create Firebase instance, you need to enable Google authentication.
 
 * Go to the Firebase Console for your new instance.
 * Click "Authentication" in the left-hand menu
