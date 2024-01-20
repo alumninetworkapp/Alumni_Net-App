@@ -1,6 +1,6 @@
 # AlumNet Social Media App
 
-Wooble is a fully functional social media app with multiple features built with flutter and dart.
+AlumNet is a fully functional social media app with multiple features built with flutter and dart.
 * Alumnet is an app that has been built with Flutter and Dart.
 * It is a network app that has multiple features.
 
